@@ -1,18 +1,27 @@
-import { Phone, MapPin, Mail } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { clientConfig } from "./client-config";
 
-import Header from "./components/Header";
+import {
+  componentSelection,
+  clientConfig,
+  landingConfig,
+  contactConfig
+} from "./client-config";
+
+import HeaderDefault from "./components/global/HeaderDefault"
+import HeaderWithContact from "./components/global/HeaderWithContact";
 
 function App() {
 
+
+  // Each section div ref
   const homeRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const serviceRef = useRef<HTMLDivElement>(null);
 
+  // Scroll to location
   const location = useLocation()
-
   useEffect(() => {
     if (location.hash === "") { scrollToHome() }
     if (location.hash === "#services") { scrollToService() }
@@ -29,15 +38,18 @@ function App() {
     serviceRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Is device IOS? Switch which map / phone to open
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   const mapLink = isIOS
-    ? clientConfig.location.appleMapLink
-    : clientConfig.location.googleMapLink;
+    ? contactConfig.location.appleMapLink
+    : contactConfig.location.googleMapLink;
 
 
   return (
     <main className="min-h-screen w-full pt-24  overflow-x-hidden bg-[#171716] text-base-content font-sans">
-      <Header />
+
+      {componentSelection.header === "default" && <HeaderDefault />}
+      {componentSelection.header === "contact" && <HeaderWithContact />}
 
       {/* Hero Section */}
       <section
@@ -49,19 +61,19 @@ function App() {
         lg:px-24   /* 8rem on ≥1024px */
         xl:px-28   /* 10rem on ≥1280px */
         2xl:px-48 "
-        style={{ backgroundImage: `url(${clientConfig.heroImg})` }}
+        style={{ backgroundImage: `url(${landingConfig.landing_img})` }}
       >
         <div className="absolute inset-0 bg-gray-800 opacity-80"></div>
         <div className="relative z-10 max-w-4xl text-center px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold font-LemonMilk mb-4">{clientConfig.heroText}</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold font-LemonMilk mb-4">{landingConfig.landing_title}</h1>
           <p className="text-lg md:text-xl text-gray-300 mb-6">
-            {clientConfig.heroSubText}
+            {landingConfig.landing_subtext}
           </p>
           <button
             onClick={scrollToContact}
             className="btn btn-lg bg-primary border-primary text-lg"
           >
-            Give Us A Ca
+            Give Us A Call
           </button>
         </div>
       </section>
@@ -130,7 +142,7 @@ function App() {
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           <div className="w-full lg:w-1/2">
             <iframe
-              src={clientConfig.location.googleMapEmbedLink}
+              src={contactConfig.location.googleMapEmbedLink}
               width="100%"
               height="350"
               loading="lazy"
@@ -141,38 +153,36 @@ function App() {
           {/* Left: Info block (appears on top in mobile) */}
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <div>
-              <h3 className="text-xl font-bold">AMR Auto Repair</h3>
+              <h3 className="text-xl font-bold">{clientConfig.short_name}</h3>
               <div className="flex items-center mt-2">
-                <MapPin size={24} color={clientConfig.colors.logoColor} />
+                <MapPin size={24} color={clientConfig.logo_color} />
                 <a href={mapLink} className="ml-2 underline">
-                  {clientConfig.location.address}
+                  {contactConfig.location.address}
                   <br />
-                  {clientConfig.location.addressSecondary}
+                  {contactConfig.location.addressSecondary}
                 </a>
               </div>
               <div className="flex items-center mt-3">
-                <Phone size={24} color={clientConfig.colors.logoColor} />
-                <a href={`tel:+1${clientConfig.phoneLink}`} className="ml-2 hover:text-primary">
-                  {clientConfig.phone}
+                <Phone size={24} color={clientConfig.logo_color} />
+                <a href={`tel:+1${contactConfig.phoneLink}`} className="ml-2 hover:text-primary">
+                  {contactConfig.phone}
                 </a>
               </div>
               <div className="flex items-center mt-3">
-                <Mail size={24} color={clientConfig.colors.logoColor} />
-                <a href={`mailto:${clientConfig.email}`} className="ml-2 hover:text-primary">
-                  {clientConfig.email}
+                <Mail size={24} color={clientConfig.logo_color} />
+                <a href={`mailto:${contactConfig.email}`} className="ml-2 hover:text-primary">
+                  {contactConfig.email}
                 </a>
               </div>
             </div>
 
             <div className="w-56">
               <h4 className="text-xl font-bold">Hours of Operation</h4>
-              <span className="flex justify-between mt-3">Monday:<span>8 AM - 6 PM</span></span>
-              <span className="flex justify-between ">Tuesday:<span>8 AM - 6 PM</span></span>
-              <span className="flex justify-between ">Wednesday:<span>8 AM - 6 PM</span></span>
-              <span className="flex justify-between ">Thursday:<span>8 AM - 6 PM</span></span>
-              <span className="flex justify-between ">Friday:<span>8 AM - 6 PM</span></span>
-              <span className="flex justify-between ">Saturday:<span>9 AM - 4 PM</span></span>
-              <span className="flex justify-between ">Sunday:<span>Closed</span></span>
+              {contactConfig.hours.map(({ day, time }) => (
+                <span key={day} className="flex justify-between mt-1">
+                  {day}:<span>{time}</span>
+                </span>
+              ))}
             </div>
           </div>
 
@@ -182,7 +192,7 @@ function App() {
       </section>
 
       <footer className="px-8 py-6 h-16 bg-[#272627] text-neutral-content text-sm text-center">
-        &copy; {new Date().getFullYear()} {clientConfig.name}. All rights reserved.
+        &copy; {new Date().getFullYear()} {clientConfig.long_name}. All rights reserved.
       </footer>
     </main>
   );

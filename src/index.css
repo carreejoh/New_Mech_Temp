@@ -21,27 +21,17 @@
 }
 
 @plugin "daisyui" {
-    themes: corporate --default
+    themes: business --default, corporate
 }
 
-/* Light mode */
 @plugin "daisyui/theme" {
-    name: "corporate";
+    name: "business";
     default: true;
 
-    /* Intelligence Green */
+    /* Primary color  */
     --color-primary: rgb(253,199,0);
-    /* Energy Blue */
-    --color-secondary: rgb(16, 16, 124);
-    /* Daylight Orange */
-    --color-accent: rgb(247, 148, 29);
-    /* Cloud Grey */
-    /* --color-base-100: rgb(255, 255, 255); */
 
-    /* Main base color */
-    /* --color-base-200: rgb(239, 238, 238); */
-    /* Main content color */
-    /* --color-base-100: rgb(255, 255, 255); */
+    --color-secondary: rgb(0,0,0);
 }
 
 html {

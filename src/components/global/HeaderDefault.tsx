@@ -1,10 +1,11 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-import { clientConfig } from "../client-config";
+import { clientConfig } from "../../client-config";
 
-const Header: React.FC = () => {
+const HeaderDefault: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="w-full fixed top-0 z-50 bg-[#272627] shadow-sm border-b-[2px] border-primary">
+    <header className="w-full fixed top-0 z-50 bg-base-100 shadow-sm border-b-[2px] border-primary">
       <div className="h-24 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 xl:px-28 2xl:px-48">
         <Link to="/" className="">
           <img className="" alt="logo" src={clientConfig.logo}/>
@@ -30,7 +31,7 @@ const Header: React.FC = () => {
               className="tab"
               onClick={() => setSelectedLocation(key)}
             >
-              <p className={`text-md font-medium font-LemonMilk ${selectedLocation === key ? "text-primary" : "text-base-100"}`}>
+              <p className={`text-md font-medium font-LemonMilk ${selectedLocation === key ? "text-primary" : "text-base-content"}`}>
                 {name}
               </p>
             </Link>
@@ -39,7 +40,7 @@ const Header: React.FC = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded-md bg-primary focus:outline-none focus:ring"
+          className="md:hidden p-2 rounded-md bg-primary text-black focus:outline-none focus:ring"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label="Toggle menu"
         >
@@ -49,7 +50,7 @@ const Header: React.FC = () => {
 
       {/* Mobile nav dropdown */}
       {mobileOpen && (
-        <nav className="md:hidden bg-[#272627] shadow-md">
+        <nav className="md:hidden bg-base-100 shadow-md">
           <div className="flex flex-col items-center py-4 space-y-4">
             {links.map(({ name, to, key }) => (
               <Link
@@ -61,7 +62,7 @@ const Header: React.FC = () => {
                   setMobileOpen(false);
                 }}
               >
-                <p className={`text-lg font-medium ${selectedLocation === key ? "text-primary" : "text-base-100"}`}>
+                <p className={`text-lg font-medium ${selectedLocation === key ? "text-primary" : "text-base-content"}`}>
                   {name}
                 </p>
               </Link>
@@ -73,4 +74,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default HeaderDefault;

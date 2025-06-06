@@ -1,24 +1,93 @@
 
+// <------ CLIENT VALUES ------->
 
 export const clientConfig = {
 
+  // Themes / Colors
+  daisy_theme: "business",
+  logo_color: "#FDC700",
+  // Set primary / secondary colors in index.css
+
   // General
-  name: "AMR Auto Repair",
-  colors: {
-    logoColor: "#FDC700",
-  },
+  short_name: "John's Auto Repair",
+  long_name: "John's Auto Repair LLC",
+  phone: "(801) 555-1234",
+  phoneLink: "8015551234",
+  email: "AMR_Auto@gmail.com",
+  address: "1145 Richards St,",
+  addressSecondary: "Salt Lake City, UT 84101",
 
   // Header
-  logo: "/AMRLogo.png",
+  logo: "/brand_imgs/logo.png",
 
-  // Home
-  heroImg: "/AMR_Auto.png",
-  heroText: "Action Mobile Auto Repair",
-  heroSubText: "Honest, skilled mechanics serving Salt Lake City and beyond. We keep you running smoothly.",
-  
-  // Services
+};
 
-  // Contact
+// <------ COMPONENT SELECTION ------->
+
+export const componentSelection = {
+  // default, contact
+  header: "contact"
+}
+
+// <------ LANDING VALUES ------->
+
+export const landingConfig = {
+  landing_img: "/brand_imgs/hero.png",
+  landing_title: "Action Mobile Auto Repair",
+  landing_subtext: "Honest, skilled mechanics serving Salt Lake City and beyond. We keep you running smoothly.",
+  landing_cta: "Give Us A Call",
+  landing_type: 0,
+}
+
+
+// <------- SERVICE VALUES ------->
+
+export const servicesConfig = [
+  {
+    title: "Tire Services",
+    description: "We handle all your tire needs with expert care.",
+    image: "/service_imgs/tire_services.jpg",
+    items: [
+      "Tire repair",
+      "Tire balancing",
+      "Tire swapping"
+    ]
+  },
+  {
+    title: "Engine Repair",
+    description: "Keep your engine running like new.",
+    image: "/service_imgs/engine_repair.jpg",
+    items: [
+      "Diagnostics",
+      "Timing belt replacement",
+      "Engine rebuild"
+    ]
+  },
+  {
+    title: "Scheduled Maintenance",
+    description: "Regular service to keep your vehicle in top shape.",
+    image: "/service_imgs/scheduled_maintenance.jpg",
+    items: [
+      "Oil change",
+      "Battery testing",
+      "Fluid change"
+    ]
+  },
+  {
+    title: "Brakes",
+    description: "Stay safe with professional brake service.",
+    image: "/service_imgs/brakes.jpg",
+    items: [
+      "Brake pad replacement",
+      "Rotor resurfacing",
+      "Fluid bleed"
+    ]
+  }
+];
+
+// <------- CONTACT INFO -------->
+
+export const contactConfig = {
   phone: "(801) 555-1234",
   phoneLink: "8015551234",
   email: "AMR_Auto@gmail.com",
@@ -29,4 +98,13 @@ export const clientConfig = {
     googleMapLink: "https://www.google.com/maps?q=Action+Mobile+Repair&ll=40.7439845,-111.892386",
     appleMapLink: "https://maps.apple.com/?q=Action+Mobile+Repair&ll=40.7439845,-111.892386"
   },
-};
+  hours: [
+    { day: "Monday", time: "8 AM - 6 PM" },
+    { day: "Tuesday", time: "8 AM - 6 PM" },
+    { day: "Wednesday", time: "8 AM - 6 PM" },
+    { day: "Thursday", time: "8 AM - 6 PM" },
+    { day: "Friday", time: "8 AM - 6 PM" },
+    { day: "Saturday", time: "9 AM - 4 PM" },
+    { day: "Sunday", time: "Closed" },
+  ]
+}
