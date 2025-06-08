@@ -35,7 +35,7 @@ const ReviewsDefault: React.FC = () => {
                         </div>
 
                         {/* Review Text */}
-                        <p className="text-base-content">{review.reviewText}</p>
+                        <p className="text-base-content text-sm">{review.reviewText}</p>
                     </div>
                 ))}
             </div>

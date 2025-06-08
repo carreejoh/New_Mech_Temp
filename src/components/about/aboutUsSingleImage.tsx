@@ -13,14 +13,14 @@ const AboutUsSingleImage = React.forwardRef<HTMLDivElement>((_, ref) => {
             <h2 className="text-3xl font-bold font-LemonMilk text-center mb-12 text-base-content/80">
                 Our Story
             </h2>
-            <div className="flex flex-col-reverse lg:flex-row gap-10 items-center">
-                <p className="text-base-content lg:w-1/2 text-xl leading-relaxed">
-                    {aboutUsConfig.description}
+            <div className="flex flex-col gap-10 items-center">
+                <p className="text-base-content lg:w-1/2 text-lg leading-relaxed indent-10">
+                    "{aboutUsConfig.description}"
                 </p>
                 <img
                     src={aboutUsConfig.team_photo_image}
                     alt="Wide view of garage"
-                    className="w-full lg:w-1/2 rounded-sm object-cover shadow-md max-h-[400px]"
+                    className="w-full lg:w-2/3 brightness-70 rounded-sm object-cover shadow-md max-h-[400px]"
                 />
             </div>
         </section>
