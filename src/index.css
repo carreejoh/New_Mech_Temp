@@ -21,7 +21,7 @@
 }
 
 @plugin "daisyui" {
-    themes: business --default, corporate
+    themes: business --default, corporate, light
 }
 
 @plugin "daisyui/theme" {

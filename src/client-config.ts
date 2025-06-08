@@ -26,7 +26,17 @@ export const clientConfig = {
 
 export const componentSelection = {
   // default, contact
-  header: "contact"
+  header: "default",
+  // default,
+  landing: "default",
+  // default,
+  services: "default",
+  // default, singleImage
+  about: "singleImage",
+  // default
+  reviews: "default",
+  // default
+  contact: "default"
 }
 
 // <------ LANDING VALUES ------->
@@ -46,7 +56,7 @@ export const servicesConfig = [
   {
     title: "Tire Services",
     description: "We handle all your tire needs with expert care.",
-    image: "/service_imgs/tire_services.jpg",
+    image: "/services_imgs/tireBalance.jpg",
     items: [
       "Tire repair",
       "Tire balancing",
@@ -56,7 +66,7 @@ export const servicesConfig = [
   {
     title: "Engine Repair",
     description: "Keep your engine running like new.",
-    image: "/service_imgs/engine_repair.jpg",
+    image: "/services_imgs/engineRepair.jpg",
     items: [
       "Diagnostics",
       "Timing belt replacement",
@@ -66,7 +76,7 @@ export const servicesConfig = [
   {
     title: "Scheduled Maintenance",
     description: "Regular service to keep your vehicle in top shape.",
-    image: "/service_imgs/scheduled_maintenance.jpg",
+    image: "/services_imgs/oilChange.jpeg",
     items: [
       "Oil change",
       "Battery testing",
@@ -76,7 +86,7 @@ export const servicesConfig = [
   {
     title: "Brakes",
     description: "Stay safe with professional brake service.",
-    image: "/service_imgs/brakes.jpg",
+    image: "/services_imgs/brakeJob.jpg",
     items: [
       "Brake pad replacement",
       "Rotor resurfacing",
@@ -84,6 +94,55 @@ export const servicesConfig = [
     ]
   }
 ];
+
+// <--------- ABOUT US -------->
+
+export const aboutUsConfig = {
+  description: "Founded with a mission to redefine trust in auto repair, we’ve built our reputation on honesty, hard work, and community values. Whether it’s a quick tune-up or a major rebuild, you can count on us to get the job done right.",
+  team_photo_image: "/about_imgs/team.jpg",
+}
+
+// <------- REVIEWS ------->
+
+export const reviewsConfig = [
+  {
+    fullName: "Jessica Taylor",
+    reviewValue: 5,
+    timePosted: "06/01/2025",
+    reviewText:
+      "Absolutely incredible service. They diagnosed and fixed my car faster than I expected, and the staff was super friendly and professional. Highly recommended!",
+  },
+  {
+    fullName: "Marcus Bennett",
+    reviewValue: 4,
+    timePosted: "05/28/2025",
+    reviewText:
+      "Great work on my brakes. Fair pricing and clear communication. The only reason I'm not giving 5 stars is the slightly long wait time, but the quality was excellent.",
+  },
+  {
+    fullName: "Elena Rodriguez",
+    reviewValue: 5,
+    timePosted: "05/20/2025",
+    reviewText:
+      "This shop has exceeded my expectations every single time. Friendly staff, clean facility, and flawless service. I won’t take my car anywhere else.",
+  },
+  {
+    fullName: "David Chen",
+    reviewValue: 5,
+    timePosted: "05/15/2025",
+    reviewText:
+      "Everything from the check-in process to the final result was smooth and professional. My car runs perfectly now. Definitely a 5-star experience.",
+  },
+  {
+    fullName: "Amanda Greene",
+    reviewValue: 5,
+    timePosted: "05/10/2025",
+    reviewText:
+      "They went above and beyond. Explained every step, finished ahead of schedule, and even offered a courtesy ride. Easily one of the best shops I’ve worked with.",
+  },
+];
+
+
 
 // <------- CONTACT INFO -------->
 

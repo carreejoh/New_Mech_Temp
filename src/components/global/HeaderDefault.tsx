@@ -31,7 +31,7 @@ const HeaderDefault: React.FC = () => {
               className="tab"
               onClick={() => setSelectedLocation(key)}
             >
-              <p className={`text-md font-medium font-LemonMilk ${selectedLocation === key ? "text-primary" : "text-base-content"}`}>
+              <p className={`text-lg font-medium font-LemonMilk ${selectedLocation === key ? "text-primary" : "text-base-content"}`}>
                 {name}
               </p>
             </Link>
