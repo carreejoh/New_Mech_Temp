@@ -1,58 +1,91 @@
-import React from "react";
-import { Link } from "react-router-dom";
-// import { Menu, X } from "lucide-react";
-import { clientConfig } from "../../client-config";
 
-const links = [
-    { name: "Home", to: "/" },
-    { name: "Services", to: "/#services" },
-    { name: "About", to: "/#about" },
-    { name: "Contact", to: "/#contact" },
-];
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X, Phone, MapPin } from "lucide-react";
+
+import { clientConfig } from "../../client-config";
+import { contactConfig } from "../../client-config";
 
 const HeaderWithContact: React.FC = () => {
-    // const [mobileOpen, setMobileOpen] = useState(false);
+    const [selectedLocation, setSelectedLocation] = useState("home");
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    const links = [
+        { name: "Home", to: "/", key: "home" },
+        { name: "Services", to: "/#services", key: "services" },
+        { name: "About Us", to: "/#about", key: "about" },
+        { name: "Contact", to: "/#contact", key: "contact" },
+    ];
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const mapLink = isIOS
+        ? contactConfig.location.appleMapLink
+        : contactConfig.location.googleMapLink;
 
     return (
-        <header className="w-full bg-base-100 border-b-[2px] border-primary shadow-sm fixed top-0 z-50">
-            <div className="grid grid-cols-3 px-4 py-2 sm:px-6 md:px-8 lg:px-24 xl:px-28 2xl:px-48 h-auto md:h-24">
-                <Link to="/" className="flex items-center space-x-2 col-span-1">
-                    <img src={clientConfig.logo} alt="logo" className="h-12" />
+        <header className="w-full fixed top-0 z-50 bg-base-100 shadow-sm border-b-[2px] border-primary">
+            <div className={`w-full flex md:flex-row flex-col md:p-2 pt-2 pb-2 md:items-center justify-end gap-4 bg-primary bg-opacity-100 px-4 sm:px-6 md:px-8 lg:px-24 xl:px-28 2xl:px-48`}>
+                <a href={`tel:+1${contactConfig.phoneLink}`} className="ml-2 flex items-center gap-1 font-medium italic text-base-100 hover:text-black">
+                    <Phone size={16} className="rotate-45 " />
+                    {contactConfig.phone}
+                </a>
+                <a href={mapLink} className="ml-2 md:mt-0 -mt-3 flex items-center gap-1 font-medium italic text-base-100 hover:text-black">
+                    <MapPin size={19} />
+                    {clientConfig.addressFull}
+                </a>
+            </div>
+            <div className="h-24 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-24 xl:px-28 2xl:px-48">
+                <Link to="/" className="">
+                    <img className="" alt="logo" src={clientConfig.logo} />
                 </Link>
-
-                <div className="flex items-center justify-center gap-6 col-span-1">
-                    {links.map((link) => (
+                {/* Desktop nav */}
+                <nav className="hidden md:flex space-x-4">
+                    {links.map(({ name, to, key }) => (
                         <Link
-                            key={link.name}
-                            to={link.to}
-                            // onClick={() => setMobileOpen(false)}
-                            className="text-md font-medium hover:text-primary"
+                            key={key}
+                            to={to}
+                            className="tab"
+                            onClick={() => setSelectedLocation(key)}
                         >
-                            {link.name}
+                            <p className={`text-lg font-medium font-LemonMilk ${selectedLocation === key ? "text-primary" : "text-base-content"}`}>
+                                {name}
+                            </p>
                         </Link>
                     ))}
-                </div>
+                </nav>
 
-                <div className="hidden md:block text-right text-sm col-span-1">
-                    <p className="font-medium text-base-content">{clientConfig.address}<br></br> {clientConfig.addressSecondary}</p>
-                    <p className="font-medium text-base-content mt-2">{clientConfig.phone}</p>
-                </div>
+                {/* Mobile toggle */}
+                <button
+                    className="md:hidden p-2 rounded-md bg-primary text-black focus:outline-none focus:ring"
+                    onClick={() => setMobileOpen((o) => !o)}
+                    aria-label="Toggle menu"
+                >
+                    {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
 
-            {/* <nav className={`md:flex ${mobileOpen ? "block" : "hidden"} bg-base-100 md:bg-transparent`}>
-                <div className="flex flex-col md:flex-row items-center md:justify-center space-y-2 md:space-y-0 md:space-x-6 py-3 md:py-0 px-4 md:px-0">
-                    {links.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.to}
-                            onClick={() => setMobileOpen(false)}
-                            className="text-md font-medium hover:text-primary"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
-            </nav> */}
+            {/* Mobile nav dropdown */}
+            {mobileOpen && (
+                <nav className="md:hidden bg-base-100 shadow-md">
+                    <div className="flex flex-col items-center py-4 space-y-4">
+                        {links.map(({ name, to, key }) => (
+                            <Link
+                                key={key}
+                                to={to}
+                                className="w-full text-center"
+                                onClick={() => {
+                                    setSelectedLocation(key);
+                                    setMobileOpen(false);
+                                }}
+                            >
+                                <p className={`text-lg font-medium ${selectedLocation === key ? "text-primary" : "text-base-content"}`}>
+                                    {name}
+                                </p>
+                            </Link>
+                        ))}
+                    </div>
+                </nav>
+            )}
         </header>
     );
 };

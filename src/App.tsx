@@ -11,14 +11,17 @@ import HeaderDefault from "./components/global/HeaderDefault"
 import HeaderWithContact from "./components/global/HeaderWithContact";
 
 // Landing components
-import LandingDefault from "./components/landing/landingDefault";
+import LandingCenteredPhoto from "./components/landing/landingCenteredPhoto";
+import LandingLeftPhoto from "./components/landing/landingLeftPhoto";
 
 // Service components
-import ServicesDefault from "./components/services/servicesDefault";
+import ServiceCards from "./components/services/serviceCards";
+import ServiceCardsPrimary from "./components/services/serviceCardsPrimary";
 
 // About components
-import AboutUsDefault from "./components/about/aboutUsDefault";
 import AboutUsSingleImage from "./components/about/aboutUsSingleImage";
+import AboutUsOwnerTeam from "./components/about/aboutUsOwnerTeam";
+import AboutUsOwnerTeamFlex from "./components/about/aboutUsOwnerTeamFlex";
 
 // Reviews
 import ReviewsDefault from "./components/reviews/reviewsDefault";
@@ -68,17 +71,33 @@ function App() {
       {componentSelection.header === "contact" && <HeaderWithContact />}
 
       {/* Hero Section */}
-      {componentSelection.landing === "default" && <LandingDefault ref={homeRef} onScrollToContact={scrollToContact} />}
+      {componentSelection.landing === "centeredPhoto" && <LandingCenteredPhoto ref={homeRef} onScrollToContact={scrollToContact} />}
+      {componentSelection.landing === "leftPhoto" && <LandingLeftPhoto ref={homeRef} onScrollToContact={scrollToContact} />}
 
-      {/* Services Section */}
-      {componentSelection.services === "default" && <ServicesDefault ref={serviceRef} />}
-
-      {/* About Section */}
-      {componentSelection.about === "default" && <AboutUsDefault ref={aboutRef} />}
-      {componentSelection.about === "singleImage" && <AboutUsSingleImage ref={aboutRef} />}
+      {/* BORDER */}
+      <div className="w-full h-[2px] bg-primary"></div>
 
       {/* Reviews Section */}
       {componentSelection.reviews === "default" && <ReviewsDefault />}
+
+      {/* BORDER */}
+      <div className="w-full h-[2px] bg-primary"></div>
+
+      {/* Services Section */}
+      {componentSelection.services === "default" && <ServiceCards ref={serviceRef} />}
+      {componentSelection.services === "primary" && <ServiceCardsPrimary ref={serviceRef} />}
+
+      {/* BORDER */}
+      <div className="w-full h-[2px] bg-primary"></div>
+
+      {/* About Section */}
+      {componentSelection.about === "singleImage" && <AboutUsSingleImage ref={aboutRef} />}
+      {componentSelection.about === "ownerTeam" && <AboutUsOwnerTeam ref={aboutRef} />}
+      {componentSelection.about === "ownerTeamFlex" && <AboutUsOwnerTeamFlex ref={aboutRef} />}
+
+      {/* BORDER */}
+      <div className="w-full h-[2px] bg-primary"></div>
+
 
       {/* Contact Section */}
       {componentSelection.contact === "default" && <ContactDefault ref={contactRef} />}

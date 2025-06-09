@@ -8,6 +8,10 @@ export const clientConfig = {
   logo_color: "#FDC700",
   // Set primary / secondary colors in index.css
 
+  // Other styling
+  borders: "rounded-none",
+
+
   // General
   short_name: "John's Auto Repair",
   long_name: "John's Auto Repair LLC",
@@ -16,6 +20,7 @@ export const clientConfig = {
   email: "AMR_Auto@gmail.com",
   address: "1145 Richards St,",
   addressSecondary: "Salt Lake City, UT 84101",
+  addressFull: "1145 Richards St, Salt Lake City, UT 84101",
 
   // Header
   logo: "/brand_imgs/logo.png",
@@ -26,15 +31,24 @@ export const clientConfig = {
 
 export const componentSelection = {
   // default, contact
-  header: "default",
-  // default,
-  landing: "default",
-  // default,
+  header: "contact",
+  
+  // centeredPhoto,
+  // leftPhoto
+  landing: "leftPhoto",
+
+  // default, 
+  // primary
   services: "default",
-  // default, singleImage
-  about: "singleImage",
+
+  // singleImage,
+  // ownerTeam,
+  // ownerTeamFlex
+  about: "ownerTeamFlex",
+
   // default
   reviews: "default",
+
   // default
   contact: "default"
 }
@@ -43,16 +57,21 @@ export const componentSelection = {
 
 export const landingConfig = {
   landing_img: "/brand_imgs/hero.png",
-  landing_title: "Action Mobile Auto Repair",
+  landing_title: "Quality Service at Record Speeds",
   landing_subtext: "Honest, skilled mechanics serving Salt Lake City and beyond. We keep you running smoothly.",
-  landing_cta: "Give Us A Call",
+  landing_cta: "GIVE US A CALL",
   landing_type: 0,
 }
 
 
 // <------- SERVICE VALUES ------->
 
-export const servicesConfig = [
+export const serviceConfig = {
+  // bg-base-300 for solid, url for photo
+  bg: "url(/services_imgs/tire_background.jpg)"
+}
+
+export const serviceCardConfig = [
   {
     title: "Tire Services",
     description: "We handle all your tire needs with expert care.",
@@ -99,8 +118,40 @@ export const servicesConfig = [
 
 export const aboutUsConfig = {
   description: "Founded with a mission to redefine trust in auto repair, we’ve built our reputation on honesty, hard work, and community values. Whether it’s a quick tune-up or a major rebuild, you can count on us to get the job done right.",
-  team_photo_image: "/about_imgs/team.jpg",
+  team_image: "/about_imgs/team.jpg",
+  team_description: "Exceptional team members ready to get you back on the road with precision and care. Each technician brings years of experience, honesty, and a commitment to getting the job done right the first time.",
+  owner_image: "/about_imgs/owner.png",
+  owner_name: "John Doe",
+  owner_description: "Founded with a mission to redefine trust in auto repair, we’ve built our reputation on honesty, hard work, and community values. Whether it’s a quick tune-up or a major rebuild, you can count on us to get the job done right."
 }
+
+export const aboutUsCardConfig = [
+  {
+    fullName: "John Martinez",
+    yearsOfExperience: 18,
+    image: "/about_imgs/owner.png",
+    description: "ASE-certified master technician with nearly two decades of experience in engine diagnostics and repair."
+  },
+  {
+    fullName: "Alex Brooks",
+    yearsOfExperience: 12,
+    image: "/about_imgs/owner.png",
+    description: "Brake system specialist with a strong focus on clear communication. "
+  },
+  {
+    fullName: "Leo Nguyen",
+    yearsOfExperience: 9,
+    image: "/about_imgs/owner.png",
+    description: "Expert in electrical diagnostics and hybrid systems. "
+  },
+  {
+    fullName: "Emily Chavez",
+    yearsOfExperience: 6,
+    image: "/about_imgs/owner.png",
+    description: "Skilled in oil systems, tire work, and general maintenance."
+  }
+];
+
 
 // <------- REVIEWS ------->
 

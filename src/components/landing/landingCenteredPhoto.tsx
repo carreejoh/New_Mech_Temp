@@ -1,12 +1,15 @@
 
 import React from "react";
-import { landingConfig } from "../../client-config";
+import {
+    clientConfig, 
+    landingConfig
+ } from "../../client-config";
 
-interface LandingDefaultProps {
+interface LandingCenteredPhotoProps {
     onScrollToContact: () => void;
 }
 
-const LandingDefault = React.forwardRef<HTMLDivElement, LandingDefaultProps>(
+const LandingCenteredPhoto = React.forwardRef<HTMLDivElement, LandingCenteredPhotoProps>(
     ({ onScrollToContact }, ref) => {
         return (
             <section
@@ -20,12 +23,15 @@ const LandingDefault = React.forwardRef<HTMLDivElement, LandingDefaultProps>(
                     <h1 className="text-4xl md:text-5xl font-extrabold font-LemonMilk mb-4">
                         {landingConfig.landing_title}
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-300 mb-6">
+                    <p className="text-lg md:text-xl text-base-content/90 mb-6">
                         {landingConfig.landing_subtext}
                     </p>
                     <button
                         onClick={onScrollToContact}
-                        className="btn btn-lg bg-primary border-primary text-black font-bold text-lg"
+                        className={`
+                            ${clientConfig.borders}
+                            btn btn-lg bg-primary border-primary text-black font-bold text-lg
+                            `}
                     >
                         {landingConfig.landing_cta}
                     </button>
@@ -35,4 +41,4 @@ const LandingDefault = React.forwardRef<HTMLDivElement, LandingDefaultProps>(
     }
 );
 
-export default LandingDefault;
+export default LandingCenteredPhoto;

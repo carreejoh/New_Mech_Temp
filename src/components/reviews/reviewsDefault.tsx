@@ -8,7 +8,7 @@ const ReviewsDefault: React.FC = () => {
         <section
             className="px-6 sm:px-6 md:px-8 lg:px-24 xl:px-28 2xl:px-48 py-16 bg-base-300 text-base-content"
         >
-            <h2 className="text-3xl font-bold font-LemonMilk text-center mb-12 text-base-content/80">
+            <h2 className="text-3xl font-bold font-LemonMilk text-center mb-12 text-base-content">
                 What Our Customers Are Saying:
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8">

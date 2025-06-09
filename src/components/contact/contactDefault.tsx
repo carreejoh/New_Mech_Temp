@@ -15,7 +15,7 @@ const ContactDefault = React.forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
       className="px-6 sm:px-6 md:px-8 lg:px-24 xl:px-28 2xl:px-48 py-16 bg-base-300 text-base-content/80"
     >
-      <h2 className="text-3xl font-bold font-LemonMilk text-center mb-12 text-base-content/100">
+      <h2 className="text-3xl font-bold font-LemonMilk text-center mb-12 text-base-content">
         Contact Us
       </h2>
       <div className="flex flex-col lg:flex-row gap-10 items-start">
@@ -34,7 +34,7 @@ const ContactDefault = React.forwardRef<HTMLDivElement>((_, ref) => {
         {/* Info Block */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
           <div>
-            <h3 className="text-xl font-bold text-base-content/100">{clientConfig.short_name}</h3>
+            <h3 className="text-xl font-bold text-base-content">{clientConfig.short_name}</h3>
             <div className="flex items-center mt-2">
               <MapPin size={24} color={clientConfig.logo_color} />
               <a href={mapLink} className="ml-2 underline">
