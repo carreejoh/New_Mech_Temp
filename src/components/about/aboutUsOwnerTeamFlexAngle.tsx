@@ -1,10 +1,10 @@
 import React from "react";
 import { aboutUsConfig } from "../../client-config";
 
-const AboutUsOwnerTeamFlex = React.forwardRef<HTMLDivElement>((_, ref) => {
+const AboutUsOwnerTeamFlexAngle = React.forwardRef<HTMLDivElement>((_, ref) => {
 
     const width = 75;
-    const angle = 9;
+    const angle = 26;
 
     const angleRadians = (angle * Math.PI) / 180;
     const heightFactor = Math.tan(angleRadians);
@@ -34,9 +34,9 @@ const AboutUsOwnerTeamFlex = React.forwardRef<HTMLDivElement>((_, ref) => {
                 About Us
             </h2>
 
-            <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center justify-between mx-auto">
+            <div className="relative z-10 flex flex-col-reverse md:flex-row gap-12 items-center justify-between mx-auto">
                 {/* Team Section */}
-                <div className="flex flex-col gap-6 text-center md:text-left md:w-2/3 items-center md:items-start">
+                <div className="flex flex-col gap-6 text-center md:text-left md:w-1/2 items-center md:items-start">
                     <h3 className="text-2xl font-semibold text-base-content -mb-2">Meet the Team</h3>
                     <p className="text-md leading-relaxed indent-6 text-base-content/70 max-w-3xl">
                         "{aboutUsConfig.team_description}"
@@ -44,22 +44,22 @@ const AboutUsOwnerTeamFlex = React.forwardRef<HTMLDivElement>((_, ref) => {
                     <img
                         src={aboutUsConfig.team_image}
                         alt="Team"
-                        className="w-full max-w-xl brightness-80 rounded-sm border-2 object-cover shadow-md max-h-[400px]"
+                        className="w-full max-w-xl brightness-80 rounded-sm border-2 object-cover shadow-md max-h-[300px]"
                     />
                 </div>
 
                 {/* Owner Section */}
-                <div className="flex flex-col gap-6 text-center md:text-right md:w-1/4 md:items-end">
-                    <h3 className="text-2xl text-right font-semibold text-base-content">Meet the Owner</h3>
+                <div className="flex flex-col gap-6 text-center items-center md:text-right md:w-1/2 md:items-end">
+                    <h3 className="text-2xl font-semibold text-base-content">Meet the Owner</h3>
                     <img
                         src={aboutUsConfig.owner_image}
                         alt="Owner"
-                        className="w-[50%] max-w-sm brightness-80 rounded-sm border-2 object-cover shadow-md"
+                        className="w-[40%] max-w-sm brightness-80 rounded-sm border-2 object-cover shadow-md"
                     />
-                    <p className="text-md text-right leading-relaxed indent-6 text-base-content/70 max-w-xl">
+                    <p className="text-md leading-relaxed indent-6 text-base-content/70 max-w-3xl">
                         "{aboutUsConfig.owner_description}"
                     </p>
-                    <p className="text-right text-xl text-base-content font-semibold w-full">
+                    <p className=" text-xl text-base-content font-semibold w-full">
                         - {aboutUsConfig.owner_name}
                     </p>
                 </div>
@@ -68,4 +68,4 @@ const AboutUsOwnerTeamFlex = React.forwardRef<HTMLDivElement>((_, ref) => {
     );
 });
 
-export default AboutUsOwnerTeamFlex;
+export default AboutUsOwnerTeamFlexAngle;

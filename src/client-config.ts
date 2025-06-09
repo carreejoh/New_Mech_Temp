@@ -43,8 +43,9 @@ export const componentSelection = {
 
   // singleImage,
   // ownerTeam,
-  // ownerTeamFlex
-  about: "ownerTeamFlex",
+  // ownerTeamFlex,
+  // ownerTeamFlexAngle
+  about: "ownerTeamFlexAngle",
 
   // default
   reviews: "default",

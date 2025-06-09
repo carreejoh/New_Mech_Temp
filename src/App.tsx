@@ -21,7 +21,8 @@ import ServiceCardsPrimary from "./components/services/serviceCardsPrimary";
 // About components
 import AboutUsSingleImage from "./components/about/aboutUsSingleImage";
 import AboutUsOwnerTeam from "./components/about/aboutUsOwnerTeam";
-import AboutUsOwnerTeamFlex from "./components/about/aboutUsOwnerTeamFlex";
+import AboutUsOwnerTeamFlex from "./components/about/aboutUseOwnerTeamFlex";
+import AboutUsOwnerTeamFlexAngle from "./components/about/aboutUsOwnerTeamFlexAngle";
 
 // Reviews
 import ReviewsDefault from "./components/reviews/reviewsDefault";
@@ -94,6 +95,7 @@ function App() {
       {componentSelection.about === "singleImage" && <AboutUsSingleImage ref={aboutRef} />}
       {componentSelection.about === "ownerTeam" && <AboutUsOwnerTeam ref={aboutRef} />}
       {componentSelection.about === "ownerTeamFlex" && <AboutUsOwnerTeamFlex ref={aboutRef} />}
+      {componentSelection.about === "ownerTeamFlexAngle" && <AboutUsOwnerTeamFlexAngle ref={aboutRef} />}
 
       {/* BORDER */}
       <div className="w-full h-[2px] bg-primary"></div>
