@@ -10,6 +10,21 @@ import { clientConfig } from './client-config.ts';
 document.documentElement.setAttribute('data-theme', clientConfig.daisy_theme);
 document.title = clientConfig.short_name || "Default Title";
 
+const setFavicon = (url: string, type = "image/png") => {
+  let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement | null;
+
+  if (!link) {
+    link = document.createElement("link");
+    link.rel = "icon";
+    document.head.appendChild(link);
+  }
+
+  link.type = type;
+  link.href = url;
+};
+
+setFavicon("/brand_imgs/browser_logo.png");
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
