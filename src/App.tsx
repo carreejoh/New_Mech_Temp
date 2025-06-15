@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 import {
   componentSelection,
@@ -62,7 +64,12 @@ function App() {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-
+ // Get subdomain for link to revup
+  function getVercelSubdomain(url: string): string | null {
+    const match = url.match(/^https?:\/\/([^.]+)\.vercel\.app/);
+    return match ? match[1] : null;
+  }
+  const subdomain = getVercelSubdomain(window.location.href);
 
   return (
     <main className="min-h-screen w-full pt-24  overflow-x-hidden bg-[#171716] text-base-content font-sans">
@@ -103,6 +110,19 @@ function App() {
 
       {/* Contact Section */}
       {componentSelection.contact === "default" && <ContactDefault ref={contactRef} />}
+
+      {/* Buy now link */}
+
+      <div className="bg-[#1C1C1C] fixed p-4 rounded-md bottom-4 right-4 z-[2000] shadow-xl">
+        <div className="flex items-center space-x-3">
+          <img src="/Base_Logo.png" className="h-10" />
+          <h2 className="text-lg font-semibold text-[#CDCDCD]">Like what you see?</h2>
+        </div>
+        <Link to={`https://revupwebsites.com/first-step/${clientConfig.short_name}/${subdomain}`} className="flex items-center space-x-2 btn bg-[#D8161A] mt-2">
+          <p>Purchase Now</p>
+          <SquareArrowOutUpRight size={16} />
+        </Link>
+      </div>
 
       <footer className="px-8 py-6 h-16 bg-[#272627] text-neutral-content text-sm text-center">
         &copy; {new Date().getFullYear()} {clientConfig.long_name}. All rights reserved.
