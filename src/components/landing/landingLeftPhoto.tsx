@@ -1,5 +1,5 @@
 import React from "react";
-import { landingConfig, clientConfig } from "../../client-config";
+import { landingConfig, clientConfig } from "../../App";
 
 interface LandingLeftPhotoProps {
   onScrollToContact: () => void;
@@ -61,6 +61,5 @@ const LandingLeftPhoto = React.forwardRef<HTMLDivElement, LandingLeftPhotoProps>
     );
   }
 );
-
 
 export default LandingLeftPhoto;

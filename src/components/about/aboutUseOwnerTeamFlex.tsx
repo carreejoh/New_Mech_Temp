@@ -1,10 +1,6 @@
-
-
-
-
 // components/about/AboutUsSingleImage.tsx
 import React from "react";
-import { aboutUsConfig } from "../../client-config";
+import { aboutUsConfig } from "../../App";
 
 const AboutUsOwnerTeamFlex = React.forwardRef<HTMLDivElement>((_, ref) => {
     return (

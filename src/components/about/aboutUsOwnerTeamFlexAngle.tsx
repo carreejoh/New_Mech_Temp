@@ -1,5 +1,5 @@
 import React from "react";
-import { aboutUsConfig } from "../../client-config";
+import { aboutUsConfig } from "../../App";
 
 const AboutUsOwnerTeamFlexAngle = React.forwardRef<HTMLDivElement>((_, ref) => {
 

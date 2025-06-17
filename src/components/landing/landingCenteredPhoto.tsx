@@ -1,9 +1,8 @@
-
 import React from "react";
 import {
     clientConfig, 
     landingConfig
- } from "../../client-config";
+ } from "../../App";
 
 interface LandingCenteredPhotoProps {
     onScrollToContact: () => void;

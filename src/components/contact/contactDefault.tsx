@@ -1,7 +1,7 @@
 // components/contact/ContactDefault.tsx
 import React from "react";
 import { Phone, MapPin, Mail } from "lucide-react";
-import { clientConfig, contactConfig } from "../../client-config";
+import { clientConfig, contactConfig } from "../../App";
 
 const ContactDefault = React.forwardRef<HTMLDivElement>((_, ref) => {
 
@@ -59,7 +59,7 @@ const ContactDefault = React.forwardRef<HTMLDivElement>((_, ref) => {
 
           <div className="w-56">
             <h4 className="text-xl font-bold text-base-content/100">Hours of Operation</h4>
-            {contactConfig.hours.map(({ day, time }) => (
+            {contactConfig.hours.map(({ day, time }: { day: string; time: string }) => (
               <span key={day} className="flex justify-between mt-1">
                 {day}:<span>{time}</span>
               </span>

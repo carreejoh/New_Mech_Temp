@@ -1,10 +1,6 @@
-
-
-
-
 // components/about/AboutUsSingleImage.tsx
 import React from "react";
-import { aboutUsConfig, aboutUsCardConfig } from "../../client-config";
+import { aboutUsConfig, aboutUsCardConfig } from "../../App";
 
 const AboutUsOwnerTeam = React.forwardRef<HTMLDivElement>((_, ref) => {
     return (
@@ -74,7 +70,7 @@ const AboutUsOwnerTeam = React.forwardRef<HTMLDivElement>((_, ref) => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 mb-8">
-                        {aboutUsCardConfig.map((person, index) => (
+                        {aboutUsCardConfig.map((person: any, index: number) => (
                             <div key={index} className="card bg-base-100 w-full shadow-md">
                                 <figure>
                                     <img

@@ -1,10 +1,8 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone, MapPin } from "lucide-react";
 
-import { clientConfig } from "../../client-config";
-import { contactConfig } from "../../client-config";
+import { clientConfig, contactConfig } from "../../App";
 
 const HeaderWithContact: React.FC = () => {
     const [selectedLocation, setSelectedLocation] = useState("home");

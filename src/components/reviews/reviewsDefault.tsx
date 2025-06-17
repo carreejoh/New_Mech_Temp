@@ -1,6 +1,5 @@
-
 import React from "react";
-import { reviewsConfig } from "../../client-config";
+import { reviewsConfig } from "../../App";
 import { getRelativeTime } from "../functions/functions";
 
 const ReviewsDefault: React.FC = () => {

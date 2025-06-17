@@ -1,6 +1,5 @@
-
 import React from "react";
-import { serviceCardConfig, serviceConfig, clientConfig } from "../../client-config";
+import { serviceCardConfig, serviceConfig, clientConfig } from "../../App";
 import { Link } from "react-router-dom";
 
 const ServiceCards = React.forwardRef<HTMLDivElement>((_, ref) => {
@@ -50,7 +49,7 @@ const ServiceCards = React.forwardRef<HTMLDivElement>((_, ref) => {
         </div>
         <div className="w-full px-6 py-6 text-center">
           <p className="text-lg font-semibold text-base-content mb-4">
-            Not seeing what you're looking for? We offer much more than what’s listed here.
+            Not seeing what you're looking for? We offer much more than what's listed here.
           </p>
           <Link
             to="/#contact"
